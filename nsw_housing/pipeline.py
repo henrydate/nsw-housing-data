@@ -24,7 +24,7 @@ from typing import Callable
 
 from . import vg_sales, rent, exports
 from . import abs as abs_mod
-from . import rba, asx, cashrate, capitals
+from . import rba, asx, cashrate, capitals, drivers
 from .core import init_db, get_conn, get_logger
 
 log = get_logger("pipeline")
@@ -32,6 +32,7 @@ log = get_logger("pipeline")
 CONNECTORS: dict[str, Callable[[], int]] = {
     "vg_sales": vg_sales.run,   # NSW Valuer-General transaction-level sales (granular!)
     "rent":     rent.run,       # NSW DCJ Rent and Sales Report median rents (LGA/postcode)
+    "drivers":  drivers.run,    # ABS state demand drivers (migration, population)
     "abs":      abs_mod.run,
     "rba":      rba.run,
     "asx":      asx.run,

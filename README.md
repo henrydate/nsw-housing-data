@@ -45,6 +45,7 @@ Reproduced in `nsw_housing_notebook.ipynb` and `analysis/nsw_analysis.py`
 | `rba` / `cashrate` | [RBA tables](https://www.rba.gov.au/statistics/tables/) F5/F6 + F1.1 | national | housing lending rates + cash rate |
 | `capitals` | ABS RES_DWELL | every capital city | interstate median-price comparison |
 | `asx` | ASX (MarkitDigital) | — | property-sector filings |
+| `drivers` | [ABS ERP_COMP_Q](https://data.api.abs.gov.au/) | NSW, quarterly | demand drivers: net interstate & overseas migration, population growth |
 
 ### The PSI parser (the interesting engineering)
 
@@ -76,6 +77,7 @@ analysis/nsw_analysis.py   # suburb medians, price distribution, $/m², yields, 
 |-------|-------|
 | `sales` | **one row per transaction** — contract_date, suburb, postcode, price, area, dwelling_type, zoning |
 | `rental_medians` | period × region (LGA/postcode) × dwelling_type → median_rent |
+| `state_drivers` | period × measure → value (migration, population growth) |
 | `building_approvals`, `lending_rates`, `cash_rate`, `capital_prices`, `asx_announcements` | reference series |
 
 ---
